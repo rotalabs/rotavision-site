@@ -1,0 +1,321 @@
+// Footer styles for RotaVision theme
+
+// Site footer
+.site-footer {
+    position: relative;
+    padding: $spacing-16 0 $spacing-8;
+    background-color: $neutral-900;
+    color: $neutral-400;
+    overflow: hidden;
+    
+    // Footer background gradient
+    .footer-gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 5% 10%, rgba($primary-800, 0.3), transparent 400px),
+        radial-gradient(circle at 95% 15%, rgba($secondary-800, 0.3), transparent 400px),
+        radial-gradient(circle at 50% 100%, rgba($accent-800, 0.2), transparent 400px);
+      opacity: 0.4;
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+    // Footer content layout
+    .footer-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: $spacing-10;
+      margin-bottom: $spacing-10;
+      
+      @media (max-width: $breakpoint-md) {
+        flex-direction: column;
+        gap: $spacing-8;
+      }
+    }
+    
+    // Footer info section (logo and description)
+    .footer-info {
+      flex: 1.5;
+      min-width: 250px;
+      
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        margin-bottom: $spacing-4;
+        
+        img {
+          height: 36px;
+          width: auto;
+          margin-right: $spacing-3;
+          filter: brightness(0) invert(1);
+        }
+        
+        .logo-text {
+          font-family: $font-family-primary;
+          font-weight: $font-weight-bold;
+          font-size: $font-size-xl;
+          color: white;
+        }
+      }
+      
+      .footer-description {
+        font-size: $font-size-base;
+        line-height: $line-height-relaxed;
+        max-width: 400px;
+      }
+    }
+    
+    // Footer links section
+    .footer-links {
+      flex: 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: $spacing-8;
+      
+      @media (max-width: $breakpoint-md) {
+        flex-direction: column;
+        gap: $spacing-6;
+      }
+    }
+    
+    // Footer nav section
+    .footer-nav {
+      flex: 1;
+      min-width: 160px;
+    }
+    
+    // Footer contact section
+    .footer-contact {
+      flex: 1;
+      min-width: 160px;
+    }
+    
+    // Footer social section
+    .footer-social {
+      flex: 1;
+      min-width: 160px;
+    }
+    
+    // Footer headings
+    .footer-heading {
+      color: white;
+      font-size: $font-size-lg;
+      margin-bottom: $spacing-4;
+      font-weight: $font-weight-semibold;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: $gradient-primary;
+        border-radius: $border-radius-full;
+      }
+    }
+    
+    // Footer menu
+    .footer-menu {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      
+      .footer-menu-item {
+        margin-bottom: $spacing-3;
+        
+        a {
+          color: $neutral-400;
+          text-decoration: none;
+          transition: color $transition-normal;
+          display: inline-block;
+          
+          &:hover {
+            color: white;
+            transform: translateX(3px);
+          }
+        }
+      }
+    }
+    
+    // Contact details
+    .contact-details {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      
+      .contact-item {
+        margin-bottom: $spacing-3;
+        display: flex;
+        
+        .contact-label {
+          min-width: 60px;
+          font-weight: $font-weight-medium;
+          color: $neutral-300;
+        }
+        
+        .contact-value {
+          color: $neutral-400;
+        }
+      }
+    }
+    
+    // Social links
+    .social-links {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: $spacing-3;
+      
+      .social-item {
+        .social-link {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background-color: rgba(255, 255, 255, 0.1);
+          color: $neutral-300;
+          transition: all $transition-normal;
+          
+          svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+          }
+          
+          &:hover {
+            background-color: $primary-500;
+            color: white;
+            transform: translateY(-3px);
+          }
+          
+          &.twitter:hover {
+            background-color: #1DA1F2;
+          }
+          
+          &.linkedin:hover {
+            background-color: #0A66C2;
+          }
+          
+          &.github:hover {
+            background-color: #333;
+          }
+        }
+      }
+    }
+    
+    // Footer bottom
+    .footer-bottom {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: $spacing-6;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      
+      @media (max-width: $breakpoint-md) {
+        flex-direction: column;
+        text-align: center;
+        gap: $spacing-4;
+      }
+      
+      .copyright {
+        font-size: $font-size-sm;
+        margin: 0;
+      }
+      
+      .attribution {
+        font-size: $font-size-sm;
+        margin: 0;
+      }
+    }
+    
+    // Footer CTA section
+    .footer-cta {
+      background: $gradient-primary;
+      padding: $spacing-8;
+      border-radius: $border-radius-lg;
+      margin-bottom: $spacing-10;
+      position: relative;
+      z-index: 1;
+      color: white;
+      
+      h3 {
+        color: white;
+        margin-bottom: $spacing-4;
+      }
+      
+      p {
+        margin-bottom: $spacing-6;
+        opacity: 0.9;
+      }
+      
+      .cta-form {
+        display: flex;
+        gap: $spacing-2;
+        
+        @media (max-width: $breakpoint-sm) {
+          flex-direction: column;
+        }
+        
+        .cta-input {
+          flex: 1;
+          padding: $spacing-3 $spacing-4;
+          border: none;
+          border-radius: $border-radius;
+          background-color: rgba(255, 255, 255, 0.1);
+          color: white;
+          
+          &::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+          }
+          
+          &:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
+          }
+        }
+        
+        .cta-button {
+          padding: $spacing-3 $spacing-6;
+          background-color: white;
+          color: $primary-500;
+          border: none;
+          border-radius: $border-radius;
+          font-weight: $font-weight-medium;
+          cursor: pointer;
+          transition: all $transition-normal;
+          
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          }
+        }
+      }
+    }
+  }
+  
+  // Dark theme adjustments
+  .dark-theme {
+    .site-footer {
+      background-color: darken($neutral-900, 3%);
+    }
+  }
+  
+  // Responsive adjustments
+  @media (max-width: $breakpoint-lg) {
+    .site-footer {
+      padding: $spacing-12 0 $spacing-6;
+    }
+  }

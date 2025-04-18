@@ -1,0 +1,240 @@
+/**
+ * RotaVision Professional Animations
+ * 
+ * This script handles subtle, professional animations across the site.
+ * It focuses on smooth transitions and scroll effects rather than flashy animations.
+ */
+
+ document.addEventListener('DOMContentLoaded', function() {
+  initScrollReveal();
+  initMobileNavigation();
+  initStickyHeader();
+  enhanceLinks();
+  initTabSwitching();
+});
+
+/**
+ * Initialize scroll reveal animations
+ * Elements will animate in subtly as they enter the viewport
+ */
+function initScrollReveal() {
+  const animateElements = document.querySelectorAll('.scroll-animated');
+  
+  // Only proceed if there are elements to animate
+  if (!animateElements.length) return;
+  
+  // Create the observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Add the visible class to trigger the animation
+        entry.target.classList.add('visible');
+        
+        // Stop observing this element
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1, // Trigger when at least 10% of the item is visible
+    rootMargin: '0px 0px -50px 0px' // Slightly offset to trigger before fully in view
+  });
+  
+  // Start observing each element
+  animateElements.forEach(element => {
+    observer.observe(element);
+  });
+}
+
+/**
+ * Initialize mobile navigation
+ */
+function initMobileNavigation() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mainMenu = document.getElementById('main-menu');
+  
+  if (!menuToggle || !mainMenu) return;
+  
+  menuToggle.addEventListener('click', function() {
+    const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+    
+    // Toggle aria-expanded
+    this.setAttribute('aria-expanded', !expanded);
+    
+    // Toggle menu visibility
+    mainMenu.classList.toggle('active');
+    this.classList.toggle('active');
+    
+    // Prevent scroll when menu is open
+    document.body.classList.toggle('menu-open');
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', function(event) {
+    if (mainMenu.classList.contains('active') && 
+        !mainMenu.contains(event.target) && 
+        !menuToggle.contains(event.target)) {
+      mainMenu.classList.remove('active');
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+    }
+  });
+  
+  // Close menu when pressing Escape key
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && mainMenu.classList.contains('active')) {
+      mainMenu.classList.remove('active');
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+    }
+  });
+}
+
+/**
+ * Initialize sticky header
+ */
+function initStickyHeader() {
+  const header = document.querySelector('.site-header');
+  
+  if (!header) return;
+  
+  let lastScrollY = window.pageYOffset;
+  const scrollThreshold = 100; // Pixels scrolled before header changes
+  
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.pageYOffset;
+    
+    // Add sticky class when scrolling down past threshold
+    if (currentScrollY > scrollThreshold) {
+      header.classList.add('sticky');
+    } else {
+      header.classList.remove('sticky');
+    }
+    
+    // Hide/show header based on scroll direction
+    if (currentScrollY > lastScrollY && currentScrollY > 150) {
+      header.classList.add('hidden');
+    } else {
+      header.classList.remove('hidden');
+    }
+    
+    lastScrollY = currentScrollY;
+  });
+}
+
+/**
+ * Enhance links with subtle animations
+ */
+function enhanceLinks() {
+  // Add subtle hover effect to links
+  const links = document.querySelectorAll('a:not(.btn)');
+  
+  links.forEach(link => {
+    if (!link.classList.contains('no-animation') && 
+        !link.parentElement.classList.contains('menu-item') &&
+        !link.closest('.footer-menu')) {
+      link.classList.add('link-animated');
+    }
+  });
+  
+  // Add active class to current page links
+  const currentPath = window.location.pathname;
+  
+  document.querySelectorAll('.menu-item a').forEach(link => {
+    if (link.getAttribute('href') === currentPath) {
+      link.parentElement.classList.add('active');
+    }
+  });
+}
+
+/**
+ * Initialize tab switching
+ */
+function initTabSwitching() {
+  const tabContainers = document.querySelectorAll('.tabs');
+  
+  tabContainers.forEach(container => {
+    const tabButtons = container.querySelectorAll('.tab-button');
+    const tabPanels = container.querySelectorAll('.tab-panel');
+    
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Get the target panel
+        const target = button.dataset.target;
+        
+        // Remove active class from all buttons and panels
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabPanels.forEach(panel => panel.classList.remove('active'));
+        
+        // Add active class to clicked button and corresponding panel
+        button.classList.add('active');
+        container.querySelector(`#${target}`).classList.add('active');
+      });
+    });
+  });
+}
+
+/**
+ * Initialize accordions
+ */
+function initAccordions() {
+  const accordions = document.querySelectorAll('.accordion');
+  
+  accordions.forEach(accordion => {
+    const headers = accordion.querySelectorAll('.accordion-header');
+    
+    headers.forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        
+        // Toggle active class
+        header.classList.toggle('active');
+        content.classList.toggle('active');
+        
+        // Set max-height for animation
+        if (content.classList.contains('active')) {
+          content.style.maxHeight = content.scrollHeight + 'px';
+        } else {
+          content.style.maxHeight = '0';
+        }
+      });
+    });
+  });
+}
+
+/**
+ * Enhance form inputs
+ */
+function enhanceFormInputs() {
+  const formInputs = document.querySelectorAll('.form-input, .form-textarea, .form-select');
+  
+  formInputs.forEach(input => {
+    // Add active class to parent when focused
+    input.addEventListener('focus', function() {
+      this.parentElement.classList.add('active');
+    });
+    
+    input.addEventListener('blur', function() {
+      if (this.value === '') {
+        this.parentElement.classList.remove('active');
+      }
+    });
+    
+    // Initialize with active class if it has a value
+    if (input.value !== '') {
+      input.parentElement.classList.add('active');
+    }
+  });
+}
+
+// Run these additional functions after the page is fully loaded
+window.addEventListener('load', function() {
+  enhanceFormInputs();
+  initAccordions();
+  
+  // Add animation classes to section titles if they don't already have scroll-animated
+  document.querySelectorAll('.section-title:not(.scroll-animated)').forEach(title => {
+    title.classList.add('scroll-animated', 'fade-up');
+  });
+});

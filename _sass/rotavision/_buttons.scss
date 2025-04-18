@@ -1,0 +1,168 @@
+// Professional button styles for RotaVision theme
+
+// Base button styles
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-2 $spacing-4;
+  border-radius: $border-radius;
+  font-family: $font-family-primary;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all $transition-normal $transition-timing-default;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  
+  // Focus styles
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($primary-500, 0.3);
+  }
+  
+  // Disabled state
+  &:disabled,
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  // Button icon
+  .btn-icon {
+    display: inline-flex;
+    margin-left: $spacing-2;
+  }
+  
+  // Button with only icon
+  &.btn-icon-only {
+    padding: $spacing-2;
+    
+    .btn-icon {
+      margin: 0;
+    }
+  }
+}
+
+// Primary button
+.btn-primary {
+  background-color: $primary-600;
+  color: white;
+  border-color: $primary-600;
+  
+  &:hover, &:focus {
+    background-color: $primary-700;
+    border-color: $primary-700;
+    color: white;
+  }
+  
+  &:active {
+    background-color: $primary-800;
+    border-color: $primary-800;
+  }
+}
+
+// Secondary button
+.btn-secondary {
+  background-color: white;
+  color: $primary-600;
+  border-color: $primary-600;
+  
+  &:hover, &:focus {
+    background-color: $primary-50;
+    color: $primary-700;
+    border-color: $primary-700;
+  }
+  
+  &:active {
+    background-color: $primary-100;
+    color: $primary-800;
+    border-color: $primary-800;
+  }
+}
+
+// Tertiary button
+.btn-tertiary {
+  background-color: transparent;
+  color: $primary-600;
+  
+  &:hover, &:focus {
+    background-color: $primary-50;
+    color: $primary-700;
+  }
+  
+  &:active {
+    background-color: $primary-100;
+    color: $primary-800;
+  }
+}
+
+// Text button (no background)
+.btn-text {
+  background: transparent;
+  color: $primary-600;
+  padding: $spacing-1 $spacing-2;
+  
+  &:hover, &:focus {
+    color: $primary-700;
+    background-color: $primary-50;
+  }
+  
+  &:active {
+    background-color: $primary-100;
+    color: $primary-800;
+  }
+}
+
+// Button sizes
+.btn-sm {
+  padding: $spacing-1 $spacing-3;
+  font-size: $font-size-xs;
+}
+
+.btn-lg {
+  padding: $spacing-3 $spacing-6;
+  font-size: $font-size-base;
+}
+
+// Block button (full width)
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+// Button group
+.btn-group {
+  display: inline-flex;
+  
+  .btn {
+    border-radius: 0;
+    
+    &:first-child {
+      border-top-left-radius: $border-radius;
+      border-bottom-left-radius: $border-radius;
+    }
+    
+    &:last-child {
+      border-top-right-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+    }
+    
+    &:not(:last-child) {
+      border-right-width: 0;
+    }
+  }
+}
+
+// Button with subtle shadow
+.btn-shadow {
+  box-shadow: $shadow-sm;
+  
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+}

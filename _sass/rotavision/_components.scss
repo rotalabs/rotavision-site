@@ -1,0 +1,771 @@
+// Component styles for RotaVision theme
+
+// Card component
+.card {
+    background-color: white;
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow;
+    transition: box-shadow $transition-normal, transform $transition-normal;
+    
+    &:hover {
+      box-shadow: $shadow-lg;
+      transform: translateY(-5px);
+    }
+    
+    .card-header {
+      padding: $spacing-4;
+      border-bottom: 1px solid $neutral-200;
+    }
+    
+    .card-body {
+      padding: $spacing-6;
+    }
+    
+    .card-footer {
+      padding: $spacing-4;
+      border-top: 1px solid $neutral-200;
+    }
+    
+    // Card types
+    &.card-primary {
+      border-top: 3px solid $primary-500;
+    }
+    
+    &.card-secondary {
+      border-top: 3px solid $secondary-500;
+    }
+    
+    &.card-accent {
+      border-top: 3px solid $accent-500;
+    }
+    
+    // Card with gradient border
+    &.card-gradient-border {
+      position: relative;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: inherit;
+        padding: 2px;
+        background: $gradient-primary;
+        -webkit-mask: 
+          linear-gradient(#fff 0 0) content-box, 
+          linear-gradient(#fff 0 0);
+        mask: 
+          linear-gradient(#fff 0 0) content-box, 
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+      }
+    }
+  }
+  
+  // Badge component
+  .badge {
+    display: inline-block;
+    padding: $spacing-1 $spacing-2;
+    border-radius: $border-radius-full;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    
+    // Badge colors
+    &.badge-primary {
+      background-color: $primary-100;
+      color: $primary-800;
+    }
+    
+    &.badge-secondary {
+      background-color: $secondary-100;
+      color: $secondary-800;
+    }
+    
+    &.badge-accent {
+      background-color: $accent-100;
+      color: $accent-800;
+    }
+    
+    &.badge-success {
+      background-color: rgba($success, 0.1);
+      color: darken($success, 10%);
+    }
+    
+    &.badge-warning {
+      background-color: rgba($warning, 0.1);
+      color: darken($warning, 10%);
+    }
+    
+    &.badge-error {
+      background-color: rgba($error, 0.1);
+      color: darken($error, 10%);
+    }
+    
+    &.badge-info {
+      background-color: rgba($info, 0.1);
+      color: darken($info, 10%);
+    }
+    
+    // Gradient badge
+    &.badge-gradient {
+      background: $gradient-primary;
+      color: white;
+    }
+  }
+  
+  // Alert component
+  .alert {
+    position: relative;
+    padding: $spacing-4;
+    margin-bottom: $spacing-6;
+    border-radius: $border-radius-md;
+    
+    // Alert variants
+    &.alert-primary {
+      background-color: rgba($primary-500, 0.1);
+      border-left: 4px solid $primary-500;
+      color: $primary-800;
+    }
+    
+    &.alert-secondary {
+      background-color: rgba($secondary-500, 0.1);
+      border-left: 4px solid $secondary-500;
+      color: $secondary-800;
+    }
+    
+    &.alert-success {
+      background-color: rgba($success, 0.1);
+      border-left: 4px solid $success;
+      color: darken($success, 20%);
+    }
+    
+    &.alert-warning {
+      background-color: rgba($warning, 0.1);
+      border-left: 4px solid $warning;
+      color: darken($warning, 20%);
+    }
+    
+    &.alert-error {
+      background-color: rgba($error, 0.1);
+      border-left: 4px solid $error;
+      color: darken($error, 20%);
+    }
+    
+    &.alert-info {
+      background-color: rgba($info, 0.1);
+      border-left: 4px solid $info;
+      color: darken($info, 20%);
+    }
+    
+    // Alert with icon
+    &.alert-with-icon {
+      padding-left: $spacing-12;
+      
+      .alert-icon {
+        position: absolute;
+        top: $spacing-4;
+        left: $spacing-4;
+        width: $spacing-6;
+        height: $spacing-6;
+        
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    
+    // Alert dismissible
+    &.alert-dismissible {
+      padding-right: $spacing-12;
+      
+      .close-button {
+        position: absolute;
+        top: $spacing-4;
+        right: $spacing-4;
+        background: transparent;
+        border: none;
+        color: inherit;
+        opacity: 0.5;
+        cursor: pointer;
+        
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+  
+  // Tooltip component
+  .tooltip {
+    position: absolute;
+    z-index: $z-index-50;
+    background-color: $neutral-900;
+    color: white;
+    padding: $spacing-2 $spacing-3;
+    border-radius: $border-radius;
+    font-size: $font-size-sm;
+    max-width: 200px;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $transition-fast;
+    box-shadow: $shadow-md;
+    
+    &.active {
+      opacity: 0.9;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -4px;
+      transform: translateX(-50%) rotate(45deg);
+      width: 8px;
+      height: 8px;
+      background-color: $neutral-900;
+    }
+    
+    // Tooltip variations
+    &.tooltip-top::after {
+      bottom: -4px;
+      top: auto;
+    }
+    
+    &.tooltip-bottom::after {
+      top: -4px;
+      bottom: auto;
+    }
+    
+    &.tooltip-left::after {
+      left: auto;
+      right: 10px;
+    }
+    
+    &.tooltip-right::after {
+      left: 10px;
+      right: auto;
+    }
+  }
+  
+  // Avatar component
+  .avatar {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: $neutral-200;
+    color: $neutral-600;
+    font-weight: $font-weight-semibold;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    // Avatar sizes
+    &.avatar-sm {
+      width: 32px;
+      height: 32px;
+      font-size: $font-size-sm;
+    }
+    
+    &.avatar-md {
+      width: 48px;
+      height: 48px;
+      font-size: $font-size-base;
+    }
+    
+    &.avatar-lg {
+      width: 64px;
+      height: 64px;
+      font-size: $font-size-lg;
+    }
+    
+    &.avatar-xl {
+      width: 96px;
+      height: 96px;
+      font-size: $font-size-xl;
+    }
+    
+    // Avatar with badge
+    .avatar-badge {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 30%;
+      height: 30%;
+      min-width: 10px;
+      min-height: 10px;
+      border-radius: 50%;
+      background-color: $success;
+      border: 2px solid white;
+      
+      &.badge-online {
+        background-color: $success;
+      }
+      
+      &.badge-away {
+        background-color: $warning;
+      }
+      
+      &.badge-busy {
+        background-color: $error;
+      }
+    }
+    
+    // Avatar group
+    &.avatar-group {
+      margin-left: -8px;
+      border: 2px solid white;
+      
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+  
+  // Avatar group
+  .avatar-group {
+    display: flex;
+    
+    .avatar {
+      margin-left: -8px;
+      border: 2px solid white;
+      
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+    
+    // Limit display and show count
+    &.avatar-group-limit {
+      position: relative;
+      
+      .avatar-count {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: $neutral-100;
+        color: $neutral-700;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-semibold;
+        margin-left: -8px;
+        border: 2px solid white;
+      }
+    }
+  }
+  
+  // Tabs component
+  .tabs {
+    position: relative;
+    
+    .tab-list {
+      display: flex;
+      border-bottom: 1px solid $neutral-200;
+      margin-bottom: $spacing-6;
+      overflow-x: auto;
+      scrollbar-width: none; // Firefox
+      
+      &::-webkit-scrollbar {
+        display: none; // Chrome, Safari, Edge
+      }
+    }
+    
+    .tab-item {
+      padding: $spacing-3 $spacing-4;
+      cursor: pointer;
+      white-space: nowrap;
+      color: $neutral-600;
+      border-bottom: 2px solid transparent;
+      transition: all $transition-normal;
+      
+      &:hover {
+        color: $primary-500;
+      }
+      
+      &.active {
+        color: $primary-500;
+        border-bottom: 2px solid $primary-500;
+      }
+    }
+    
+    .tab-content {
+      position: relative;
+      
+      .tab-panel {
+        display: none;
+        
+        &.active {
+          display: block;
+          animation: fadeIn 0.3s ease;
+        }
+      }
+    }
+    
+    // Tabs variations
+    &.tabs-pills {
+      .tab-list {
+        border-bottom: none;
+        gap: $spacing-2;
+      }
+      
+      .tab-item {
+        border-radius: $border-radius-full;
+        border-bottom: none;
+        
+        &.active {
+          background-color: $primary-500;
+          color: white;
+        }
+      }
+    }
+    
+    &.tabs-vertical {
+      display: flex;
+      
+      .tab-list {
+        flex-direction: column;
+        border-bottom: none;
+        border-right: 1px solid $neutral-200;
+        padding-right: $spacing-4;
+        margin-right: $spacing-6;
+        margin-bottom: 0;
+      }
+      
+      .tab-item {
+        padding: $spacing-3 0;
+        border-bottom: none;
+        border-right: 2px solid transparent;
+        
+        &.active {
+          border-right: 2px solid $primary-500;
+          border-bottom: none;
+        }
+      }
+      
+      .tab-content {
+        flex: 1;
+      }
+    }
+  }
+  
+  // Accordion component
+  .accordion {
+    border: 1px solid $neutral-200;
+    border-radius: $border-radius-md;
+    overflow: hidden;
+    
+    .accordion-item {
+      border-bottom: 1px solid $neutral-200;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+    
+    .accordion-header {
+      padding: $spacing-4;
+      background-color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background-color $transition-normal;
+      
+      &:hover {
+        background-color: $neutral-50;
+      }
+      
+      .accordion-icon {
+        transition: transform $transition-normal;
+        
+        &.open {
+          transform: rotate(180deg);
+        }
+      }
+    }
+    
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height $transition-normal;
+      
+      .accordion-body {
+        padding: $spacing-4;
+        border-top: 1px solid $neutral-100;
+      }
+      
+      &.open {
+        max-height: 1000px; // Arbitrary large value
+      }
+    }
+    
+    // Accordion variations
+    &.accordion-flush {
+      border: none;
+      
+      .accordion-item {
+        border-bottom: 1px solid $neutral-200;
+        border-radius: 0;
+      }
+    }
+    
+    &.accordion-gradient {
+      .accordion-header.active {
+        background: linear-gradient(to right, rgba($primary-500, 0.05), rgba($secondary-500, 0.05));
+      }
+    }
+  }
+  
+  // Breadcrumbs component
+  .breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    padding: $spacing-2 0;
+    
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+      color: $neutral-600;
+      
+      a {
+        color: $neutral-600;
+        text-decoration: none;
+        
+        &:hover {
+          color: $primary-500;
+        }
+      }
+      
+      &.active {
+        color: $primary-500;
+      }
+      
+      .separator {
+        margin: 0 $spacing-2;
+        color: $neutral-400;
+      }
+    }
+  }
+  
+  // Pagination component
+  .pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: $spacing-6 0;
+    
+    .page-item {
+      margin: 0 $spacing-1;
+      
+      .page-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: $border-radius;
+        background-color: white;
+        color: $neutral-700;
+        text-decoration: none;
+        transition: all $transition-fast;
+        border: 1px solid $neutral-200;
+        
+        &:hover {
+          background-color: $neutral-100;
+          color: $primary-500;
+        }
+      }
+      
+      &.active .page-link {
+        background-color: $primary-500;
+        color: white;
+        border-color: $primary-500;
+      }
+      
+      &.disabled .page-link {
+        color: $neutral-400;
+        pointer-events: none;
+        background-color: $neutral-100;
+      }
+    }
+  }
+  
+  // Progress bar component
+  .progress-container {
+    margin-bottom: $spacing-4;
+    
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: $spacing-1;
+      
+      .label {
+        font-size: $font-size-sm;
+        color: $neutral-700;
+      }
+      
+      .value {
+        font-size: $font-size-sm;
+        color: $neutral-600;
+      }
+    }
+    
+    .progress {
+      height: 8px;
+      background-color: $neutral-200;
+      border-radius: $border-radius-full;
+      overflow: hidden;
+      
+      .progress-bar {
+        height: 100%;
+        background-color: $primary-500;
+        border-radius: $border-radius-full;
+        transition: width 0.6s ease;
+        
+        &.progress-bar-striped {
+          background-image: linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.15) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgba(255, 255, 255, 0.15) 50%,
+            rgba(255, 255, 255, 0.15) 75%,
+            transparent 75%,
+            transparent
+          );
+          background-size: 1rem 1rem;
+        }
+        
+        &.progress-bar-animated {
+          animation: progress-bar-stripes 1s linear infinite;
+        }
+      }
+    }
+    
+    // Color variations
+    .progress-bar-primary { background-color: $primary-500; }
+    .progress-bar-secondary { background-color: $secondary-500; }
+    .progress-bar-accent { background-color: $accent-500; }
+    .progress-bar-success { background-color: $success; }
+    .progress-bar-warning { background-color: $warning; }
+    .progress-bar-error { background-color: $error; }
+    
+    // Gradient progress
+    .progress-bar-gradient {
+      background: $gradient-primary;
+    }
+  }
+  
+  // Spinner component
+  .spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba($primary-500, 0.3);
+    border-radius: 50%;
+    border-top-color: $primary-500;
+    animation: spinner 0.8s linear infinite;
+    
+    &.spinner-sm {
+      width: 16px;
+      height: 16px;
+      border-width: 2px;
+    }
+    
+    &.spinner-lg {
+      width: 30px;
+      height: 30px;
+      border-width: 3px;
+    }
+    
+    &.spinner-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -10px;
+      margin-left: -10px;
+      
+      &.spinner-sm {
+        margin-top: -8px;
+        margin-left: -8px;
+      }
+      
+      &.spinner-lg {
+        margin-top: -15px;
+        margin-left: -15px;
+      }
+    }
+    
+    // Color variations
+    &.spinner-white {
+      border-color: rgba(255, 255, 255, 0.3);
+      border-top-color: white;
+    }
+  }
+  
+  @keyframes progress-bar-stripes {
+    from { background-position: 1rem 0; }
+    to { background-position: 0 0; }
+  }
+  
+  // Divider component
+  .divider {
+    height: 1px;
+    background-color: $neutral-200;
+    margin: $spacing-6 0;
+    
+    &.divider-vertical {
+      height: auto;
+      width: 1px;
+      margin: 0 $spacing-6;
+    }
+    
+    &.divider-dashed {
+      background: none;
+      height: 1px;
+      border-top: 1px dashed $neutral-300;
+    }
+    
+    &.divider-gradient {
+      background: $gradient-primary;
+      height: 2px;
+    }
+    
+    &.divider-with-text {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      
+      &::before,
+      &::after {
+        content: '';
+        flex-grow: 1;
+        height: 1px;
+        background-color: $neutral-200;
+      }
+      
+      .divider-text {
+        padding: 0 $spacing-4;
+        color: $neutral-600;
+        font-size: $font-size-sm;
+      }
+    }
+  }

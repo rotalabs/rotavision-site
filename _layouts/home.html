@@ -1,0 +1,56 @@
+---
+layout: default
+---
+
+<div class="home-container">
+  {% include gradient-hero.html %}
+  
+  <section class="intro-section">
+    <div class="container">
+      <div class="floating-element intro-text">
+        <h2 class="section-title">{{ page.intro_title }}</h2>
+        <div class="section-content">
+          {{ page.intro_content | markdownify }}
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="services-section">
+    <div class="container">
+      <h2 class="section-title">{{ page.services_title }}</h2>
+      <div class="service-grid">
+        {% for service in site.services limit:3 %}
+          {% include service-card.html service=service %}
+        {% endfor %}
+      </div>
+      <div class="view-all-link">
+        <a href="{{ '/services' | relative_url }}" class="btn btn-primary">View All Services</a>
+      </div>
+    </div>
+  </section>
+  
+  <section class="case-studies-section">
+    <div class="container">
+      <h2 class="section-title">{{ page.case_studies_title }}</h2>
+      <div class="case-studies-grid">
+        {% for case_study in site.case_studies limit:2 %}
+          {% include case-study.html case_study=case_study %}
+        {% endfor %}
+      </div>
+      <div class="view-all-link">
+        <a href="{{ '/case-studies' | relative_url }}" class="btn btn-secondary">Explore More Case Studies</a>
+      </div>
+    </div>
+  </section>
+  
+  <section class="contact-banner">
+    <div class="container">
+      <div class="floating-element contact-banner-content">
+        <h2>{{ page.contact_title }}</h2>
+        <p>{{ page.contact_text }}</p>
+        <a href="{{ '/contact' | relative_url }}" class="btn btn-accent">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+</div>

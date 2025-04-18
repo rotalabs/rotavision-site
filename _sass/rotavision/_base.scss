@@ -1,0 +1,184 @@
+// Reset and base styles
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: $font-family-secondary;
+    font-size: $font-size-base;
+    line-height: $line-height-normal;
+    color: $neutral-700;
+    background-color: $neutral-50;
+    overflow-x: hidden;
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 0% 0%, rgba($primary-500, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 100% 0%, rgba($secondary-500, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 50% 100%, rgba($accent-500, 0.03) 0%, transparent 50%);
+      z-index: -1;
+      pointer-events: none;
+    }
+  }
+  
+  // Smooth transitions for theme changes
+  body {
+    transition: background-color $transition-normal, color $transition-normal;
+  }
+  
+  // Container
+  .container {
+    width: 100%;
+    max-width: $container-max-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $container-padding;
+    padding-right: $container-padding;
+  }
+  
+  // Site container
+  .site-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  // Main content
+  .main-content {
+    flex: 1;
+    padding-top: $spacing-16;
+    padding-bottom: $spacing-20;
+  }
+  
+  // Links
+  a {
+    color: $primary-500;
+    text-decoration: none;
+    transition: color $transition-fast;
+    
+    &:hover, &:focus {
+      color: $primary-600;
+      text-decoration: none;
+    }
+    
+    &:focus {
+      outline: 2px solid rgba($primary-500, 0.5);
+      outline-offset: 2px;
+    }
+  }
+  
+  // Lists
+  ul, ol {
+    padding-left: $spacing-5;
+  }
+  
+  // Images
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  // Horizontal rule
+  hr {
+    height: 1px;
+    background-color: $neutral-200;
+    border: none;
+    margin: $spacing-8 0;
+  }
+  
+  // Selection
+  ::selection {
+    background-color: rgba($primary-500, 0.2);
+    color: $primary-900;
+  }
+  
+  // Section spacing
+  .section-title {
+    margin-bottom: $spacing-8;
+    text-align: center;
+  }
+  
+  section {
+    padding: $spacing-16 0;
+  }
+  
+  // Background gradient
+  .gradient-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    opacity: 0.02;
+    background: 
+      radial-gradient(circle at 10% 10%, $primary-200, transparent 400px),
+      radial-gradient(circle at 90% 20%, $secondary-200, transparent 300px),
+      radial-gradient(circle at 50% 80%, $accent-200, transparent 400px);
+    pointer-events: none;
+  }
+  
+  // Focus styles
+  :focus {
+    outline: 2px solid rgba($primary-500, 0.5);
+    outline-offset: 2px;
+  }
+  
+  // Focus visible (keyboard only)
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+  
+  :focus-visible {
+    outline: 2px solid rgba($primary-500, 0.5);
+    outline-offset: 2px;
+  }
+  
+  // Print styles
+  @media print {
+    body {
+      background: white;
+    }
+    
+    .site-header,
+    .site-footer,
+    .gradient-background {
+      display: none;
+    }
+    
+    .main-content {
+      padding: 0;
+    }
+    
+    a {
+      color: $neutral-900;
+      text-decoration: underline;
+    }
+  }
+  
+  // Screen reader text
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }

@@ -1,0 +1,34 @@
+<div class="floating-card floating-element" data-depth="{{ include.depth | default: '0.1' }}">
+    <div class="floating-card-inner">
+      {% if include.image %}
+        <div class="floating-card-image">
+          <img src="{{ include.image | relative_url }}" alt="{{ include.title }}">
+        </div>
+      {% endif %}
+      
+      {% if include.icon %}
+        <div class="floating-card-icon">
+          <img src="{{ include.icon | relative_url }}" alt="{{ include.title }} Icon">
+        </div>
+      {% endif %}
+      
+      {% if include.title %}
+        <h3 class="floating-card-title">{{ include.title }}</h3>
+      {% endif %}
+      
+      {% if include.content %}
+        <div class="floating-card-content">
+          {{ include.content | markdownify }}
+        </div>
+      {% endif %}
+      
+      {% if include.link_url and include.link_text %}
+        <a href="{{ include.link_url | relative_url }}" class="floating-card-link">
+          {{ include.link_text }}
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      {% endif %}
+    </div>
+  </div>

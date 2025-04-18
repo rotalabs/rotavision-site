@@ -1,0 +1,131 @@
+---
+layout: default
+---
+
+<div class="service-page">
+  <section class="service-hero">
+    <div class="container">
+      <div class="service-hero-content">
+        <h1 class="service-title">{{ page.title }}</h1>
+        
+        {% if page.subtitle %}
+          <p class="service-subtitle">{{ page.subtitle }}</p>
+        {% endif %}
+        
+        <div class="service-description">
+          {{ page.description | markdownify }}
+        </div>
+        
+        {% if page.cta_button %}
+          <a href="{{ page.cta_button.url | relative_url }}" class="btn btn-primary">
+            {{ page.cta_button.text }}
+          </a>
+        {% endif %}
+      </div>
+      
+      <div class="service-hero-image floating-element">
+        {% if page.hero_image %}
+          <img src="{{ page.hero_image | relative_url }}" alt="{{ page.title }}" class="hero-image">
+        {% else %}
+          <div class="service-icon-large">
+            <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="160" height="160" rx="80" fill="url(#service-gradient)"/>
+              <defs>
+                <linearGradient id="service-gradient" x1="0" y1="0" x2="160" y2="160" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#3a6cf4"/>
+                  <stop offset="100%" stop-color="#8a3cf4"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <span class="service-icon-letter">{{ page.title | slice: 0 }}</span>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+  
+  <section class="service-content">
+    <div class="container">
+      <div class="service-content-grid">
+        <div class="service-main-content">
+          {{ content }}
+        </div>
+        
+        <aside class="service-sidebar">
+          {% if page.features %}
+            <div class="service-features floating-element">
+              <h3>Key Features</h3>
+              <ul class="features-list">
+                {% for feature in page.features %}
+                  <li class="feature-item">
+                    <span class="feature-icon">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 13L9 17L19 7" stroke="url(#feature-check)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                          <linearGradient id="feature-check" x1="5" y1="12" x2="19" y2="12" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#3a6cf4"/>
+                            <stop offset="1" stop-color="#8a3cf4"/>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </span>
+                    <span class="feature-text">{{ feature }}</span>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+          
+          {% if page.testimonial %}
+            <div class="service-testimonial floating-element">
+              <blockquote>
+                <p>{{ page.testimonial.quote }}</p>
+                <footer>
+                  <cite>{{ page.testimonial.author }}</cite>
+                  {% if page.testimonial.company %}
+                    <span class="company">{{ page.testimonial.company }}</span>
+                  {% endif %}
+                </footer>
+              </blockquote>
+            </div>
+          {% endif %}
+          
+          <div class="service-contact floating-element">
+            <h3>Interested in this service?</h3>
+            <p>Contact us today to learn how we can help your business with our {{ page.title }} solution.</p>
+            <a href="{{ '/contact' | relative_url }}" class="btn btn-primary btn-block">Get in Touch</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+  
+  {% if site.services %}
+    <section class="related-services">
+      <div class="container">
+        <h2 class="section-title">Explore Other Services</h2>
+        
+        <div class="service-grid">
+          {% assign related_services = site.services | where_exp: "service", "service.url != page.url" | limit: 3 %}
+          
+          {% for service in related_services %}
+            {% include service-card.html service=service %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+  
+  <section class="service-cta">
+    <div class="container">
+      <div class="cta-content floating-element">
+        <h2>Ready to transform your business?</h2>
+        <p>Contact our team to discuss how our AI solutions can help you overcome challenges and seize new opportunities.</p>
+        <div class="cta-buttons">
+          <a href="{{ '/contact' | relative_url }}" class="btn btn-primary">Get Started</a>
+          <a href="{{ '/case-studies' | relative_url }}" class="btn btn-secondary">View Case Studies</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

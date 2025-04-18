@@ -1,0 +1,463 @@
+// Contact page styles for RotaVision theme
+
+// Contact container
+.contact-container {
+    position: relative;
+  }
+  
+  // Contact hero section
+  .contact-hero {
+    padding: $spacing-16 0;
+    background-color: $neutral-50;
+    position: relative;
+    overflow: hidden;
+    
+    // Background shapes
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      z-index: 0;
+    }
+    
+    &::before {
+      top: -200px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: linear-gradient(to bottom right, rgba($primary-200, 0.3), rgba($secondary-200, 0.3));
+      filter: blur(70px);
+    }
+    
+    &::after {
+      bottom: -200px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: linear-gradient(to top right, rgba($secondary-200, 0.2), rgba($accent-200, 0.2));
+      filter: blur(60px);
+    }
+    
+    .container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .contact-hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      
+      .contact-subtitle {
+        font-size: $font-size-lg;
+        color: $primary-500;
+        font-weight: $font-weight-medium;
+        margin-bottom: $spacing-3;
+      }
+      
+      .contact-title {
+        font-size: $font-size-4xl;
+        margin-bottom: $spacing-6;
+        
+        @media (max-width: $breakpoint-md) {
+          font-size: $font-size-3xl;
+        }
+      }
+      
+      .contact-description {
+        font-size: $font-size-lg;
+        color: $neutral-600;
+        max-width: 700px;
+        margin: 0 auto;
+        margin-bottom: $spacing-8;
+        
+        p {
+          margin-bottom: $spacing-4;
+        }
+      }
+    }
+  }
+  
+  // Contact main section
+  .contact-main {
+    padding: $spacing-16 0;
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: $spacing-8;
+      
+      @media (max-width: $breakpoint-lg) {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    // Contact info sidebar
+    .contact-info {
+      .contact-info-card {
+        background-color: white;
+        border-radius: $border-radius-lg;
+        padding: $spacing-6;
+        box-shadow: $shadow;
+        margin-bottom: $spacing-6;
+        
+        h3 {
+          margin-bottom: $spacing-4;
+          font-size: $font-size-xl;
+          position: relative;
+          padding-bottom: $spacing-2;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: $gradient-primary;
+            border-radius: $border-radius-full;
+          }
+        }
+        
+        .contact-details {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          
+          .contact-detail-item {
+            display: flex;
+            margin-bottom: $spacing-4;
+            
+            &:last-child {
+              margin-bottom: 0;
+            }
+            
+            .contact-icon {
+              flex-shrink: 0;
+              width: 40px;
+              height: 40px;
+              border-radius: $border-radius;
+              background: linear-gradient(to bottom right, rgba($primary-500, 0.1), rgba($secondary-500, 0.1));
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-right: $spacing-3;
+              color: $primary-500;
+            }
+            
+            .contact-text {
+              .contact-label {
+                font-size: $font-size-sm;
+                color: $neutral-500;
+                margin-bottom: $spacing-1;
+              }
+              
+              .contact-value {
+                color: $neutral-800;
+                
+                a {
+                  color: $neutral-800;
+                  text-decoration: none;
+                  transition: color $transition-normal;
+                  
+                  &:hover {
+                    color: $primary-500;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      
+      .social-links-card {
+        background-color: white;
+        border-radius: $border-radius-lg;
+        padding: $spacing-6;
+        box-shadow: $shadow;
+        
+        h3 {
+          margin-bottom: $spacing-4;
+          font-size: $font-size-xl;
+          position: relative;
+          padding-bottom: $spacing-2;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: $gradient-primary;
+            border-radius: $border-radius-full;
+          }
+        }
+        
+        .social-links {
+          display: flex;
+          flex-wrap: wrap;
+          gap: $spacing-3;
+          
+          .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: $neutral-100;
+            color: $neutral-600;
+            transition: all $transition-normal;
+            
+            svg {
+              width: 20px;
+              height: 20px;
+            }
+            
+            &:hover {
+              background-color: $primary-500;
+              color: white;
+              transform: translateY(-3px);
+            }
+          }
+        }
+      }
+      
+      .office-hours-card {
+        background-color: white;
+        border-radius: $border-radius-lg;
+        padding: $spacing-6;
+        box-shadow: $shadow;
+        margin-top: $spacing-6;
+        
+        h3 {
+          margin-bottom: $spacing-4;
+          font-size: $font-size-xl;
+          position: relative;
+          padding-bottom: $spacing-2;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: $gradient-primary;
+            border-radius: $border-radius-full;
+          }
+        }
+        
+        .hours-list {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          
+          .hours-item {
+            display: flex;
+            justify-content: space-between;
+            padding: $spacing-2 0;
+            border-bottom: 1px solid $neutral-100;
+            
+            &:last-child {
+              border-bottom: none;
+            }
+            
+            .day {
+              font-weight: $font-weight-medium;
+              color: $neutral-700;
+            }
+            
+            .hours {
+              color: $neutral-600;
+            }
+          }
+        }
+      }
+    }
+    
+    // Contact form
+    .contact-form-section {
+      .contact-form-container {
+        background-color: white;
+        border-radius: $border-radius-lg;
+        padding: $spacing-8;
+        box-shadow: $shadow;
+        
+        .form-header {
+          margin-bottom: $spacing-6;
+          text-align: center;
+          
+          .form-title {
+            font-size: $font-size-2xl;
+            margin-bottom: $spacing-3;
+          }
+          
+          .form-subtitle {
+            color: $neutral-600;
+            max-width: 600px;
+            margin: 0 auto;
+          }
+        }
+        
+        .form-fields {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: $spacing-4;
+          margin-bottom: $spacing-6;
+          
+          @media (max-width: $breakpoint-md) {
+            grid-template-columns: 1fr;
+          }
+          
+          .form-group {
+            margin-bottom: $spacing-4;
+            
+            &.full-width {
+              grid-column: span 2;
+              
+              @media (max-width: $breakpoint-md) {
+                grid-column: span 1;
+              }
+            }
+          }
+        }
+        
+        .form-footer {
+          text-align: center;
+        }
+      }
+    }
+  }
+  
+  // Contact map section
+  .contact-map {
+    padding: $spacing-16 0;
+    background-color: $neutral-50;
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: $spacing-8;
+    }
+    
+    .map-container {
+      height: 400px;
+      border-radius: $border-radius-lg;
+      overflow: hidden;
+      box-shadow: $shadow;
+      
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    }
+  }
+  
+  // Contact FAQs
+  .contact-faqs {
+    padding: $spacing-16 0;
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: $spacing-8;
+    }
+    
+    .faqs-container {
+      max-width: 800px;
+      margin: 0 auto;
+      
+      .faq-item {
+        margin-bottom: $spacing-4;
+        border-bottom: 1px solid $neutral-200;
+        padding-bottom: $spacing-4;
+        
+        &:last-child {
+          border-bottom: none;
+          margin-bottom: 0;
+        }
+        
+        .faq-question {
+          font-weight: $font-weight-semibold;
+          font-size: $font-size-lg;
+          color: $neutral-800;
+          margin-bottom: $spacing-3;
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          
+          &::after {
+            content: '+';
+            font-size: $font-size-xl;
+            color: $primary-500;
+            transition: transform $transition-normal;
+          }
+          
+          &.active::after {
+            transform: rotate(45deg);
+          }
+        }
+        
+        .faq-answer {
+          color: $neutral-600;
+          padding-bottom: $spacing-3;
+          display: none;
+          
+          &.active {
+            display: block;
+          }
+          
+          p {
+            margin-bottom: $spacing-3;
+            
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Contact CTA
+  .contact-cta {
+    padding: $spacing-12 0;
+    background: $gradient-primary;
+    color: white;
+    text-align: center;
+    
+    .cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+      
+      h2 {
+        color: white;
+        margin-bottom: $spacing-4;
+        font-size: $font-size-3xl;
+      }
+      
+      p {
+        margin-bottom: $spacing-6;
+        font-size: $font-size-lg;
+        opacity: 0.9;
+      }
+      
+      .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: $spacing-4;
+        
+        @media (max-width: $breakpoint-sm) {
+          flex-direction: column;
+          align-items: center;
+          gap: $spacing-3;
+          max-width: 300px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+  }

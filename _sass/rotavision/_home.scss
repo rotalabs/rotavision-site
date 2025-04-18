@@ -1,0 +1,423 @@
+// Home page styles for RotaVision theme
+
+// Home container
+.home-container {
+    position: relative;
+  }
+  
+  // Intro section
+  .intro-section {
+    padding: $spacing-16 0;
+    position: relative;
+    overflow: hidden;
+    
+    // Background shapes
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      z-index: -1;
+    }
+    
+    &::before {
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(to bottom right, rgba($primary-200, 0.2), rgba($secondary-200, 0.2));
+      filter: blur(60px);
+    }
+    
+    &::after {
+      bottom: -100px;
+      left: -50px;
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(to top right, rgba($secondary-200, 0.1), rgba($accent-200, 0.1));
+      filter: blur(40px);
+    }
+    
+    .intro-text {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      
+      .section-title {
+        margin-bottom: $spacing-6;
+        text-align: center;
+      }
+      
+      .section-content {
+        font-size: $font-size-lg;
+        color: $neutral-600;
+        
+        p {
+          margin-bottom: $spacing-4;
+        }
+      }
+    }
+  }
+  
+  // Services section
+  .services-section {
+    padding: $spacing-16 0;
+    background-color: $neutral-50;
+    position: relative;
+    overflow: hidden;
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: $spacing-8;
+    }
+    
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: $spacing-6;
+      
+      @media (min-width: $breakpoint-md) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      @media (min-width: $breakpoint-lg) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    .view-all-link {
+      text-align: center;
+      margin-top: $spacing-10;
+    }
+  }
+  
+  // Case studies section
+  .case-studies-section {
+    padding: $spacing-16 0;
+    position: relative;
+    
+    // Background pattern
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient($neutral-100 1px, transparent 1px),
+        radial-gradient($neutral-100 1px, transparent 1px);
+      background-size: 20px 20px;
+      background-position: 0 0, 10px 10px;
+      opacity: 0.5;
+      z-index: -1;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: $spacing-8;
+    }
+    
+    .case-studies-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: $spacing-8;
+      
+      @media (min-width: $breakpoint-lg) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    .view-all-link {
+      text-align: center;
+      margin-top: $spacing-10;
+    }
+  }
+  
+  // Contact banner
+  .contact-banner {
+    padding: $spacing-12 0;
+    background: $gradient-primary;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    
+    // Overlay pattern
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent);
+      background-size: 4px 4px;
+      opacity: 0.3;
+      z-index: 0;
+    }
+    
+    .container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .contact-banner-content {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: $spacing-8;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      border-radius: $border-radius-lg;
+      
+      h2 {
+        color: white;
+        margin-bottom: $spacing-4;
+        font-size: $font-size-3xl;
+      }
+      
+      p {
+        margin-bottom: $spacing-6;
+        font-size: $font-size-lg;
+        opacity: 0.9;
+      }
+      
+      .btn-accent {
+        background-color: white;
+        color: $primary-500;
+        
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.9);
+          transform: translateY(-3px);
+        }
+      }
+    }
+  }
+  
+  // Testimonials section
+  .testimonials-section {
+    padding: $spacing-16 0;
+    background-color: $neutral-50;
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: $spacing-10;
+    }
+    
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: $spacing-6;
+      
+      @media (min-width: $breakpoint-md) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      @media (min-width: $breakpoint-lg) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    .testimonial-card {
+      background-color: white;
+      border-radius: $border-radius-lg;
+      padding: $spacing-6;
+      box-shadow: $shadow;
+      height: 100%;
+      
+      .testimonial-content {
+        font-style: italic;
+        color: $neutral-700;
+        margin-bottom: $spacing-4;
+        position: relative;
+        padding-left: $spacing-8;
+        
+        &::before {
+          content: '\201C';
+          position: absolute;
+          left: 0;
+          top: -10px;
+          font-size: 60px;
+          color: $primary-200;
+          font-family: serif;
+          line-height: 1;
+        }
+      }
+      
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        
+        .author-avatar {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          margin-right: $spacing-3;
+          background-color: $neutral-200;
+          overflow: hidden;
+          
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        
+        .author-details {
+          .author-name {
+            font-weight: $font-weight-semibold;
+            color: $neutral-800;
+            margin-bottom: $spacing-1;
+          }
+          
+          .author-title {
+            font-size: $font-size-sm;
+            color: $neutral-600;
+          }
+        }
+      }
+    }
+  }
+  
+  // Stats section
+  .stats-section {
+    padding: $spacing-16 0;
+    text-align: center;
+    
+    .section-title {
+      margin-bottom: $spacing-10;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-6;
+      
+      @media (min-width: $breakpoint-md) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    .stat-card {
+      padding: $spacing-6;
+      
+      .stat-value {
+        font-size: $font-size-4xl;
+        font-weight: $font-weight-bold;
+        margin-bottom: $spacing-2;
+        background: $gradient-primary;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        display: inline-block;
+      }
+      
+      .stat-label {
+        color: $neutral-600;
+        font-size: $font-size-base;
+      }
+    }
+  }
+  
+  // Partners section
+  .partners-section {
+    padding: $spacing-12 0;
+    background-color: $neutral-50;
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: $spacing-8;
+    }
+    
+    .partners-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: $spacing-8;
+      
+      .partner-logo {
+        height: 60px;
+        filter: grayscale(100%);
+        opacity: 0.6;
+        transition: all $transition-normal;
+        
+        &:hover {
+          filter: grayscale(0%);
+          opacity: 1;
+        }
+        
+        img {
+          height: 100%;
+          width: auto;
+        }
+      }
+    }
+  }
+  
+  // FAQ section
+  .faq-section {
+    padding: $spacing-16 0;
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: $spacing-10;
+    }
+    
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      margin-bottom: $spacing-4;
+      border-bottom: 1px solid $neutral-200;
+      padding-bottom: $spacing-4;
+      
+      &:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
+      
+      .faq-question {
+        font-weight: $font-weight-semibold;
+        font-size: $font-size-lg;
+        color: $neutral-800;
+        margin-bottom: $spacing-3;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        &::after {
+          content: '+';
+          font-size: $font-size-xl;
+          color: $primary-500;
+          transition: transform $transition-normal;
+        }
+        
+        &.active::after {
+          transform: rotate(45deg);
+        }
+      }
+      
+      .faq-answer {
+        color: $neutral-600;
+        padding-bottom: $spacing-3;
+        display: none;
+        
+        &.active {
+          display: block;
+        }
+        
+        p {
+          margin-bottom: $spacing-3;
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }

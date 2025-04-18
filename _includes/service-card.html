@@ -1,0 +1,39 @@
+<div class="service-card floating-element">
+    <div class="service-card-inner">
+      <div class="service-icon">
+        {% if service.icon %}
+          <img src="{{ service.icon | relative_url }}" alt="{{ service.title }} Icon" class="service-icon-image">
+        {% else %}
+          <div class="service-icon-placeholder">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="48" height="48" rx="24" fill="url(#service-icon-gradient-{{ forloop.index }})"/>
+              <defs>
+                <linearGradient id="service-icon-gradient-{{ forloop.index }}" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#3a6cf4"/>
+                  <stop offset="100%" stop-color="#8a3cf4"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <span class="service-icon-letter">{{ service.title | slice: 0 }}</span>
+          </div>
+        {% endif %}
+      </div>
+      
+      <h3 class="service-title">{{ service.title }}</h3>
+      
+      <div class="service-description">
+        {% if service.excerpt %}
+          {{ service.excerpt | markdownify }}
+        {% else %}
+          {{ service.content | strip_html | truncatewords: 20 | markdownify }}
+        {% endif %}
+      </div>
+      
+      <a href="{{ service.url | relative_url }}" class="service-link">
+        Learn More
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>

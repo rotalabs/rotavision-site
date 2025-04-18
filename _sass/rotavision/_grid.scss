@@ -1,0 +1,353 @@
+// Grid system for RotaVision theme
+
+// Container
+.container {
+    width: 100%;
+    max-width: $container-max-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $container-padding;
+    padding-right: $container-padding;
+    
+    // Container sizes
+    &.container-sm {
+      max-width: $container-max-width-sm;
+    }
+    
+    &.container-md {
+      max-width: $container-max-width-md;
+    }
+    
+    &.container-lg {
+      max-width: $container-max-width-lg;
+    }
+    
+    &.container-xl {
+      max-width: $container-max-width-xl;
+    }
+    
+    &.container-2xl {
+      max-width: $container-max-width-2xl;
+    }
+    
+    &.container-fluid {
+      max-width: none;
+    }
+  }
+  
+  // Row
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -$spacing-4;
+    margin-right: -$spacing-4;
+    
+    // No gutters
+    &.no-gutters {
+      margin-left: 0;
+      margin-right: 0;
+      
+      > .col {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    
+    // Small gutters
+    &.small-gutters {
+      margin-left: -$spacing-2;
+      margin-right: -$spacing-2;
+      
+      > .col {
+        padding-left: $spacing-2;
+        padding-right: $spacing-2;
+      }
+    }
+    
+    // Large gutters
+    &.large-gutters {
+      margin-left: -$spacing-6;
+      margin-right: -$spacing-6;
+      
+      > .col {
+        padding-left: $spacing-6;
+        padding-right: $spacing-6;
+      }
+    }
+  }
+  
+  // Column
+  .col {
+    flex: 1 0 0%;
+    padding-left: $spacing-4;
+    padding-right: $spacing-4;
+  }
+  
+  // Specific column widths
+  @for $i from 1 through 12 {
+    .col-#{$i} {
+      flex: 0 0 percentage($i / 12);
+      max-width: percentage($i / 12);
+      padding-left: $spacing-4;
+      padding-right: $spacing-4;
+    }
+  }
+  
+  // Responsive column widths
+  @media (min-width: $breakpoint-sm) {
+    @for $i from 1 through 12 {
+      .col-sm-#{$i} {
+        flex: 0 0 percentage($i / 12);
+        max-width: percentage($i / 12);
+      }
+    }
+  }
+  
+  @media (min-width: $breakpoint-md) {
+    @for $i from 1 through 12 {
+      .col-md-#{$i} {
+        flex: 0 0 percentage($i / 12);
+        max-width: percentage($i / 12);
+      }
+    }
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    @for $i from 1 through 12 {
+      .col-lg-#{$i} {
+        flex: 0 0 percentage($i / 12);
+        max-width: percentage($i / 12);
+      }
+    }
+  }
+  
+  @media (min-width: $breakpoint-xl) {
+    @for $i from 1 through 12 {
+      .col-xl-#{$i} {
+        flex: 0 0 percentage($i / 12);
+        max-width: percentage($i / 12);
+      }
+    }
+  }
+  
+  @media (min-width: $breakpoint-2xl) {
+    @for $i from 1 through 12 {
+      .col-2xl-#{$i} {
+        flex: 0 0 percentage($i / 12);
+        max-width: percentage($i / 12);
+      }
+    }
+  }
+  
+  // Auto column
+  .col-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+  }
+  
+  // Equal width columns
+  .col-equal {
+    flex: 1 1 0;
+    max-width: 100%;
+  }
+  
+  // Column ordering
+  .order-first {
+    order: -1;
+  }
+  
+  .order-last {
+    order: 13;
+  }
+  
+  @for $i from 0 through 12 {
+    .order-#{$i} {
+      order: $i;
+    }
+  }
+  
+  // Responsive ordering
+  @media (min-width: $breakpoint-sm) {
+    .order-sm-first { order: -1; }
+    .order-sm-last { order: 13; }
+    @for $i from 0 through 12 {
+      .order-sm-#{$i} { order: $i; }
+    }
+  }
+  
+  @media (min-width: $breakpoint-md) {
+    .order-md-first { order: -1; }
+    .order-md-last { order: 13; }
+    @for $i from 0 through 12 {
+      .order-md-#{$i} { order: $i; }
+    }
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    .order-lg-first { order: -1; }
+    .order-lg-last { order: 13; }
+    @for $i from 0 through 12 {
+      .order-lg-#{$i} { order: $i; }
+    }
+  }
+  
+  @media (min-width: $breakpoint-xl) {
+    .order-xl-first { order: -1; }
+    .order-xl-last { order: 13; }
+    @for $i from 0 through 12 {
+      .order-xl-#{$i} { order: $i; }
+    }
+  }
+  
+  // Offset columns
+  @for $i from 0 through 11 {
+    .offset-#{$i} {
+      margin-left: percentage($i / 12);
+    }
+  }
+  
+  // Responsive offsets
+  @media (min-width: $breakpoint-sm) {
+    @for $i from 0 through 11 {
+      .offset-sm-#{$i} {
+        margin-left: percentage($i / 12);
+      }
+    }
+  }
+  
+  @media (min-width: $breakpoint-md) {
+    @for $i from 0 through 11 {
+      .offset-md-#{$i} {
+        margin-left: percentage($i / 12);
+      }
+    }
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    @for $i from 0 through 11 {
+      .offset-lg-#{$i} {
+        margin-left: percentage($i / 12);
+      }
+    }
+  }
+  
+  @media (min-width: $breakpoint-xl) {
+    @for $i from 0 through 11 {
+      .offset-xl-#{$i} {
+        margin-left: percentage($i / 12);
+      }
+    }
+  }
+  
+  // Grid gap
+  .gap-0 {
+    gap: 0;
+  }
+  
+  .gap-1 {
+    gap: $spacing-1;
+  }
+  
+  .gap-2 {
+    gap: $spacing-2;
+  }
+  
+  .gap-3 {
+    gap: $spacing-3;
+  }
+  
+  .gap-4 {
+    gap: $spacing-4;
+  }
+  
+  .gap-5 {
+    gap: $spacing-5;
+  }
+  
+  .gap-6 {
+    gap: $spacing-6;
+  }
+  
+  .gap-8 {
+    gap: $spacing-8;
+  }
+  
+  .gap-10 {
+    gap: $spacing-10;
+  }
+  
+  .gap-12 {
+    gap: $spacing-12;
+  }
+  
+  // Custom grids for components
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: $spacing-6;
+    margin-top: $spacing-8;
+    
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (min-width: $breakpoint-lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .case-studies-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-8;
+    margin-top: $spacing-8;
+    
+    @media (min-width: $breakpoint-lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: $spacing-4;
+    
+    @media (min-width: $breakpoint-sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (min-width: $breakpoint-lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .service-content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-8;
+    
+    @media (min-width: $breakpoint-lg) {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+  
+  .case-study-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-6;
+    
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-4;
+    
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }

@@ -1,0 +1,60 @@
+<section class="gradient-hero">
+    <div class="hero-gradient-container">
+      <div class="gradient-overlay"></div>
+      <canvas id="gradient-canvas" data-transition-in></canvas>
+      <div class="tech-mesh-overlay"></div>
+
+    </div>
+    
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text-container">
+          <h1 class="hero-title">{{ page.hero_title | default: site.title }}</h1>
+          <p class="hero-subtitle">{{ page.hero_subtitle | default: site.description }}</p>
+          
+          {% if page.hero_buttons %}
+            <div class="hero-buttons">
+              {% for button in page.hero_buttons %}
+                <a href="{{ button.url | relative_url }}" class="btn {% if button.primary %}btn-primary{% else %}btn-secondary{% endif %}">
+                  {{ button.text }}
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+        
+        <div class="hero-image-container">
+          {% if page.hero_image %}
+            <div class="floating-element">
+              <img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_image_alt | default: 'RotaVision AI Solutions' }}" class="hero-image">
+            </div>
+          {% else %}
+            <div class="floating-element hero-abstract-shape">
+              <svg width="320" height="320" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero-shape">
+                <path d="M160 0C248.366 0 320 71.6344 320 160C320 248.366 248.366 320 160 320C71.6344 320 0 248.366 0 160C0 71.6344 71.6344 0 160 0Z" fill="url(#hero-shape-gradient)"/>
+                <circle cx="160" cy="160" r="100" fill="url(#hero-shape-gradient-2)" filter="url(#blur-filter)"/>
+                <circle cx="160" cy="160" r="60" fill="url(#hero-shape-gradient-3)" filter="url(#blur-filter)"/>
+                <defs>
+                  <linearGradient id="hero-shape-gradient" x1="0" y1="0" x2="320" y2="320" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="rgba(57, 95, 246, 0.6)"/>
+                    <stop offset="100%" stop-color="rgba(147, 47, 255, 0.6)"/>
+                  </linearGradient>
+                  <linearGradient id="hero-shape-gradient-2" x1="60" y1="60" x2="260" y2="260" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="rgba(255, 124, 58, 0.7)"/>
+                    <stop offset="100%" stop-color="rgba(195, 47, 255, 0.7)"/>
+                  </linearGradient>
+                  <linearGradient id="hero-shape-gradient-3" x1="100" y1="100" x2="220" y2="220" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="rgba(0, 210, 255, 0.8)"/>
+                    <stop offset="100%" stop-color="rgba(58, 147, 255, 0.8)"/>
+                  </linearGradient>
+                  <filter id="blur-filter" x="0" y="0" width="320" height="320" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feGaussianBlur stdDeviation="10" />
+                  </filter>
+                </defs>
+              </svg>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>

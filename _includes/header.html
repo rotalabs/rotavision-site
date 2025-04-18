@@ -1,0 +1,33 @@
+<header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-container">
+          <a href="{{ '/' | relative_url }}" class="site-logo">
+            <img src="{{ site.logo | relative_url }}" alt="{{ site.title }} Logo">
+            <span class="logo-text">{{ site.title }}</span>
+          </a>
+        </div>
+        
+        <nav class="main-navigation">
+          <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu">
+            <span class="sr-only">Toggle Menu</span>
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+          </button>
+          
+          <ul id="main-menu" class="menu">
+            {% for link in site.header_links %}
+              <li class="menu-item {% if page.url == link.url %}active{% endif %}">
+                <a href="{{ link.url | relative_url }}">{{ link.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+        
+        <div class="header-cta">
+          <a href="{{ '/contact' | relative_url }}" class="btn btn-primary">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </header>

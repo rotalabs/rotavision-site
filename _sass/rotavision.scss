@@ -1,0 +1,36 @@
+// Import variables first
+@import "rotavision/variables";
+
+// Base styles
+@import "rotavision/base";
+@import "rotavision/typography";
+
+// Layout components
+@import "rotavision/layout";
+@import "rotavision/grid";
+
+// Design elements
+@import "rotavision/gradients";
+@import "rotavision/animations";
+
+// UI Components
+@import "rotavision/components";
+@import "rotavision/buttons";
+@import "rotavision/forms";
+@import "rotavision/header";
+@import "rotavision/footer";
+@import "rotavision/hero";
+@import "rotavision/service-card";
+@import "rotavision/case-study";
+@import "rotavision/floating-element";
+
+// Page-specific styles
+@import "rotavision/home";
+@import "rotavision/services";
+@import "rotavision/case-studies";
+@import "rotavision/about";
+@import "rotavision/contact";
+
+// Utilities and helpers
+@import "rotavision/utilities";
+@import "rotavision/responsive";

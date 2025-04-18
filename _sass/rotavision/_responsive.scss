@@ -1,0 +1,236 @@
+// Responsive utilities for RotaVision theme
+
+// Hide on different screens
+.hide-sm {
+    @media (max-width: $breakpoint-sm) {
+      display: none !important;
+    }
+  }
+  
+  .hide-md {
+    @media (max-width: $breakpoint-md) {
+      display: none !important;
+    }
+  }
+  
+  .hide-lg {
+    @media (max-width: $breakpoint-lg) {
+      display: none !important;
+    }
+  }
+  
+  .hide-xl {
+    @media (max-width: $breakpoint-xl) {
+      display: none !important;
+    }
+  }
+  
+  // Show only on specific screen sizes
+  .show-sm {
+    display: none !important;
+    
+    @media (max-width: $breakpoint-sm) {
+      display: block !important;
+    }
+  }
+  
+  .show-md {
+    display: none !important;
+    
+    @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
+      display: block !important;
+    }
+  }
+  
+  .show-lg {
+    display: none !important;
+    
+    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+      display: block !important;
+    }
+  }
+  
+  .show-xl {
+    display: none !important;
+    
+    @media (min-width: $breakpoint-lg) and (max-width: $breakpoint-xl) {
+      display: block !important;
+    }
+  }
+  
+  .show-2xl {
+    display: none !important;
+    
+    @media (min-width: $breakpoint-xl) {
+      display: block !important;
+    }
+  }
+  
+  // Responsive text alignments
+  @media (max-width: $breakpoint-sm) {
+    .text-center-sm { text-align: center !important; }
+    .text-left-sm { text-align: left !important; }
+    .text-right-sm { text-align: right !important; }
+  }
+  
+  @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
+    .text-center-md { text-align: center !important; }
+    .text-left-md { text-align: left !important; }
+    .text-right-md { text-align: right !important; }
+  }
+  
+  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+    .text-center-lg { text-align: center !important; }
+    .text-left-lg { text-align: left !important; }
+    .text-right-lg { text-align: right !important; }
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    .text-center-xl { text-align: center !important; }
+    .text-left-xl { text-align: left !important; }
+    .text-right-xl { text-align: right !important; }
+  }
+  
+  // Responsive margins
+  @media (max-width: $breakpoint-sm) {
+    .m-0-sm { margin: 0 !important; }
+    .mt-0-sm { margin-top: 0 !important; }
+    .mr-0-sm { margin-right: 0 !important; }
+    .mb-0-sm { margin-bottom: 0 !important; }
+    .ml-0-sm { margin-left: 0 !important; }
+    .mx-0-sm { margin-left: 0 !important; margin-right: 0 !important; }
+    .my-0-sm { margin-top: 0 !important; margin-bottom: 0 !important; }
+    .mx-auto-sm { margin-left: auto !important; margin-right: auto !important; }
+  }
+  
+  // Responsive paddings
+  @media (max-width: $breakpoint-sm) {
+    .p-0-sm { padding: 0 !important; }
+    .pt-0-sm { padding-top: 0 !important; }
+    .pr-0-sm { padding-right: 0 !important; }
+    .pb-0-sm { padding-bottom: 0 !important; }
+    .pl-0-sm { padding-left: 0 !important; }
+    .px-0-sm { padding-left: 0 !important; padding-right: 0 !important; }
+    .py-0-sm { padding-top: 0 !important; padding-bottom: 0 !important; }
+  }
+  
+  // Responsive flex direction
+  @media (max-width: $breakpoint-sm) {
+    .flex-row-sm { flex-direction: row !important; }
+    .flex-column-sm { flex-direction: column !important; }
+  }
+  
+  @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
+    .flex-row-md { flex-direction: row !important; }
+    .flex-column-md { flex-direction: column !important; }
+  }
+  
+  // Responsive order
+  @media (max-width: $breakpoint-sm) {
+    .order-first-sm { order: -1 !important; }
+    .order-last-sm { order: 999 !important; }
+  }
+  
+  // Responsive width
+  @media (max-width: $breakpoint-sm) {
+    .w-full-sm { width: 100% !important; }
+    .w-auto-sm { width: auto !important; }
+  }
+  
+  // Responsive font sizes
+  @media (max-width: $breakpoint-sm) {
+    .text-xs-sm { font-size: $font-size-xs !important; }
+    .text-sm-sm { font-size: $font-size-sm !important; }
+    .text-base-sm { font-size: $font-size-base !important; }
+    .text-lg-sm { font-size: $font-size-lg !important; }
+    .text-xl-sm { font-size: $font-size-xl !important; }
+  }
+  
+  // Responsive utilities for specific components
+  @media (max-width: $breakpoint-md) {
+    .hero-title {
+      font-size: $font-size-3xl !important;
+    }
+    
+    .hero-subtitle {
+      font-size: $font-size-lg !important;
+    }
+    
+    .section-title {
+      font-size: $font-size-2xl !important;
+    }
+    
+    .gradient-hero {
+      min-height: auto !important;
+      padding: $spacing-16 0 !important;
+    }
+  }
+  
+  // Responsive grid adjustments
+  @media (max-width: $breakpoint-sm) {
+    .service-grid {
+      grid-template-columns: 1fr !important;
+    }
+    
+    .case-studies-grid {
+      grid-template-columns: 1fr !important;
+    }
+    
+    .gallery-grid {
+      grid-template-columns: 1fr !important;
+    }
+    
+    .service-content-grid {
+      grid-template-columns: 1fr !important;
+    }
+    
+    .results-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+  
+  // Responsive button styles
+  @media (max-width: $breakpoint-sm) {
+    .btn {
+      display: block;
+      width: 100%;
+    }
+    
+    .btn + .btn {
+      margin-top: $spacing-3;
+    }
+  }
+  
+  // Print styles
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+    
+    .print-only {
+      display: block !important;
+    }
+    
+    body {
+      font-size: 12pt;
+      line-height: 1.5;
+      color: black;
+      background-color: white;
+    }
+    
+    a {
+      text-decoration: underline;
+      color: black;
+    }
+    
+    .container {
+      max-width: none;
+      padding: 0;
+    }
+    
+    .site-header,
+    .site-footer,
+    .gradient-background {
+      display: none;
+    }
+  }

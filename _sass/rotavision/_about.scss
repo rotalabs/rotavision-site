@@ -1,0 +1,537 @@
+// About page styles for RotaVision theme
+
+// About container
+.about-container {
+    position: relative;
+  }
+  
+  // About hero section
+  .about-hero {
+    padding: $spacing-16 0;
+    background-color: $neutral-50;
+    position: relative;
+    overflow: hidden;
+    
+    // Background shapes
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      z-index: 0;
+    }
+    
+    &::before {
+      top: -200px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: linear-gradient(to bottom right, rgba($primary-200, 0.3), rgba($secondary-200, 0.3));
+      filter: blur(70px);
+    }
+    
+    &::after {
+      bottom: -200px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: linear-gradient(to top right, rgba($secondary-200, 0.2), rgba($accent-200, 0.2));
+      filter: blur(60px);
+    }
+    
+    .container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .about-hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      
+      .about-subtitle {
+        font-size: $font-size-lg;
+        color: $primary-500;
+        font-weight: $font-weight-medium;
+        margin-bottom: $spacing-3;
+      }
+      
+      .about-title {
+        font-size: $font-size-4xl;
+        margin-bottom: $spacing-6;
+        
+        @media (max-width: $breakpoint-md) {
+          font-size: $font-size-3xl;
+        }
+      }
+      
+      .about-description {
+        font-size: $font-size-lg;
+        color: $neutral-600;
+        max-width: 700px;
+        margin: 0 auto;
+        margin-bottom: $spacing-8;
+        
+        p {
+          margin-bottom: $spacing-4;
+        }
+      }
+      
+      .about-stats {
+        display: flex;
+        justify-content: center;
+        gap: $spacing-8;
+        margin-top: $spacing-8;
+        
+        @media (max-width: $breakpoint-md) {
+          flex-wrap: wrap;
+          gap: $spacing-6;
+        }
+        
+        .stat-item {
+          text-align: center;
+          
+          .stat-value {
+            font-size: $font-size-3xl;
+            font-weight: $font-weight-bold;
+            color: $primary-500;
+            margin-bottom: $spacing-1;
+          }
+          
+          .stat-label {
+            font-size: $font-size-sm;
+            color: $neutral-600;
+          }
+        }
+      }
+    }
+  }
+  
+  // Mission section
+  .mission-section {
+    padding: $spacing-16 0;
+    
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-10;
+      align-items: center;
+      
+      @media (max-width: $breakpoint-lg) {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .mission-content {
+      .section-subtitle {
+        color: $primary-500;
+        font-weight: $font-weight-medium;
+        margin-bottom: $spacing-3;
+      }
+      
+      .section-title {
+        margin-bottom: $spacing-6;
+        text-align: left;
+        
+        &::after {
+          left: 0;
+          transform: none;
+        }
+      }
+      
+      .mission-text {
+        color: $neutral-600;
+        
+        p {
+          margin-bottom: $spacing-4;
+        }
+      }
+      
+      .mission-values {
+        margin-top: $spacing-6;
+        
+        .value-item {
+          display: flex;
+          margin-bottom: $spacing-4;
+          
+          .value-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: $border-radius;
+            background: $gradient-primary;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: $spacing-4;
+            color: white;
+          }
+          
+          .value-content {
+            .value-title {
+              font-weight: $font-weight-semibold;
+              margin-bottom: $spacing-1;
+              color: $neutral-800;
+            }
+            
+            .value-description {
+              color: $neutral-600;
+              font-size: $font-size-sm;
+            }
+          }
+        }
+      }
+    }
+    
+    .mission-image {
+      position: relative;
+      
+      .image-container {
+        border-radius: $border-radius-lg;
+        overflow: hidden;
+        box-shadow: $shadow-lg;
+        
+        img {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+      }
+      
+      // Decorative elements
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        border-radius: $border-radius-lg;
+        z-index: -1;
+      }
+      
+      &::before {
+        top: -$spacing-4;
+        left: -$spacing-4;
+        width: 60%;
+        height: 60%;
+        background-color: rgba($primary-100, 0.5);
+      }
+      
+      &::after {
+        bottom: -$spacing-4;
+        right: -$spacing-4;
+        width: 60%;
+        height: 60%;
+        background-color: rgba($secondary-100, 0.5);
+      }
+    }
+  }
+  
+  // Team section
+  .team-section {
+    padding: $spacing-16 0;
+    background-color: $neutral-50;
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: $spacing-4;
+    }
+    
+    .section-subtitle {
+      text-align: center;
+      color: $neutral-600;
+      max-width: 700px;
+      margin: 0 auto $spacing-10;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-6;
+      
+      @media (min-width: $breakpoint-md) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      @media (min-width: $breakpoint-lg) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    .team-member {
+      background-color: white;
+      border-radius: $border-radius-lg;
+      overflow: hidden;
+      box-shadow: $shadow;
+      transition: transform $transition-normal, box-shadow $transition-normal;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: $shadow-lg;
+        
+        .member-image img {
+          transform: scale(1.05);
+        }
+      }
+      
+      .member-image {
+        overflow: hidden;
+        height: 0;
+        padding-bottom: 100%;
+        position: relative;
+        
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform $transition-normal;
+        }
+      }
+      
+      .member-info {
+        padding: $spacing-4;
+        text-align: center;
+        
+        .member-name {
+          font-weight: $font-weight-semibold;
+          margin-bottom: $spacing-1;
+          color: $neutral-800;
+        }
+        
+        .member-position {
+          font-size: $font-size-sm;
+          color: $primary-500;
+          margin-bottom: $spacing-3;
+        }
+        
+        .member-social {
+          display: flex;
+          justify-content: center;
+          gap: $spacing-2;
+          
+          .social-link {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: $neutral-100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $neutral-600;
+            transition: all $transition-normal;
+            
+            &:hover {
+              background-color: $primary-500;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // History timeline
+  .history-section {
+    padding: $spacing-16 0;
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: $spacing-10;
+    }
+    
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      
+      // Timeline line
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 100%;
+        background: $gradient-primary;
+        
+        @media (max-width: $breakpoint-md) {
+          left: 30px;
+        }
+      }
+      
+      .timeline-item {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: $spacing-10;
+        
+        @media (max-width: $breakpoint-md) {
+          justify-content: flex-start;
+          padding-left: 60px;
+        }
+        
+        &:last-child {
+          padding-bottom: 0;
+        }
+        
+        // Timeline dot
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 20px;
+          height: 20px;
+          background: $gradient-primary;
+          border-radius: 50%;
+          z-index: 1;
+          
+          @media (max-width: $breakpoint-md) {
+            left: 30px;
+          }
+        }
+        
+        .timeline-content {
+          width: 45%;
+          background-color: white;
+          padding: $spacing-4;
+          border-radius: $border-radius-lg;
+          box-shadow: $shadow;
+          
+          @media (max-width: $breakpoint-md) {
+            width: 100%;
+          }
+          
+          .timeline-year {
+            font-weight: $font-weight-bold;
+            color: $primary-500;
+            margin-bottom: $spacing-2;
+          }
+          
+          .timeline-title {
+            font-weight: $font-weight-semibold;
+            margin-bottom: $spacing-2;
+            color: $neutral-800;
+          }
+          
+          .timeline-description {
+            color: $neutral-600;
+            font-size: $font-size-sm;
+          }
+        }
+        
+        // Alternate left/right
+        &:nth-child(even) {
+          flex-direction: row-reverse;
+          
+          @media (max-width: $breakpoint-md) {
+            flex-direction: row;
+          }
+        }
+      }
+    }
+  }
+  
+  // Values section
+  .values-section {
+    padding: $spacing-16 0;
+    background-color: $neutral-50;
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: $spacing-10;
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: $spacing-6;
+      
+      @media (min-width: $breakpoint-md) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      @media (min-width: $breakpoint-lg) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    .value-card {
+      background-color: white;
+      border-radius: $border-radius-lg;
+      padding: $spacing-6;
+      box-shadow: $shadow;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      
+      .value-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: $border-radius;
+        background: $gradient-primary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: $spacing-4;
+        color: white;
+        
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
+      
+      .value-title {
+        font-size: $font-size-xl;
+        font-weight: $font-weight-semibold;
+        margin-bottom: $spacing-3;
+        color: $neutral-800;
+      }
+      
+      .value-description {
+        color: $neutral-600;
+        flex-grow: 1;
+      }
+    }
+  }
+  
+  // CTA section
+  .about-cta {
+    padding: $spacing-12 0;
+    background: $gradient-primary;
+    color: white;
+    text-align: center;
+    
+    .cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+      
+      h2 {
+        color: white;
+        margin-bottom: $spacing-4;
+        font-size: $font-size-3xl;
+      }
+      
+      p {
+        margin-bottom: $spacing-6;
+        font-size: $font-size-lg;
+        opacity: 0.9;
+      }
+      
+      .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: $spacing-4;
+        
+        @media (max-width: $breakpoint-sm) {
+          flex-direction: column;
+          align-items: center;
+          gap: $spacing-3;
+        }
+      }
+    }
+  }

@@ -1,0 +1,187 @@
+---
+layout: default
+---
+
+<article class="case-study-page">
+  <section class="case-study-hero">
+    <div class="container">
+      <div class="case-study-hero-content">
+        <div class="case-study-meta">
+          <span class="case-study-category">{{ page.category }}</span>
+          <span class="case-study-divider">•</span>
+          <span class="case-study-industry">{{ page.industry }}</span>
+        </div>
+        
+        <h1 class="case-study-title">{{ page.title }}</h1>
+        
+        <div class="case-study-summary">
+          {{ page.summary | markdownify }}
+        </div>
+        
+        {% if page.client_logo %}
+          <div class="client-logo">
+            <img src="{{ page.client_logo | relative_url }}" alt="{{ page.client_name }} Logo">
+          </div>
+        {% endif %}
+      </div>
+      
+      <div class="case-study-hero-image floating-element">
+        {% if page.featured_image %}
+          <div class="featured-image-container">
+            <img src="{{ page.featured_image | relative_url }}" alt="{{ page.title }}" class="featured-image">
+          </div>
+        {% else %}
+          <div class="featured-image-placeholder">
+            <div class="gradient-placeholder"></div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+  
+  <section class="case-study-overview">
+    <div class="container">
+      <div class="case-study-grid">
+        <div class="case-study-details">
+          <div class="detail-card floating-element">
+            <h3>The Challenge</h3>
+            <div class="detail-content">
+              {{ page.challenge | markdownify }}
+            </div>
+          </div>
+          
+          <div class="detail-card floating-element">
+            <h3>Our Approach</h3>
+            <div class="detail-content">
+              {{ page.approach | markdownify }}
+            </div>
+          </div>
+          
+          <div class="detail-card floating-element">
+            <h3>The Solution</h3>
+            <div class="detail-content">
+              {{ page.solution | markdownify }}
+            </div>
+          </div>
+        </div>
+        
+        <div class="case-study-results">
+          <div class="results-card floating-element">
+            <h3>Results</h3>
+            
+            {% if page.results %}
+              <div class="results-grid">
+                {% for result in page.results %}
+                  <div class="result-item">
+                    <span class="result-value">{{ result.value }}</span>
+                    <span class="result-label">{{ result.label }}</span>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+            
+            {% if page.results_description %}
+              <div class="results-description">
+                {{ page.results_description | markdownify }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="case-study-content">
+    <div class="container">
+      <div class="content-wrapper">
+        {{ content }}
+      </div>
+    </div>
+  </section>
+  
+  {% if page.testimonial %}
+    <section class="case-study-testimonial">
+      <div class="container">
+        <div class="testimonial-container floating-element">
+          <div class="quote-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 11H6.21C6.02759 10.5547 5.91341 10.0855 5.875 9.607C5.875 7.896 6.896 6.625 8.5 6.5" stroke="url(#testimonial-gradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 11H17.79C17.9724 10.5547 18.0866 10.0855 18.125 9.607C18.125 7.896 17.104 6.625 15.5 6.5" stroke="url(#testimonial-gradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 14H6C4.89543 14 4 13.1046 4 12V11C4 10.4477 4.44772 10 5 10H9C9.55228 10 10 10.4477 10 11V14C10 15.1046 9.10457 16 8 16C7.44772 16 7 16.4477 7 17V18" stroke="url(#testimonial-gradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 14H18C19.1046 14 20 13.1046 20 12V11C20 10.4477 19.5523 10 19 10H15C14.4477 10 14 10.4477 14 11V14C14 15.1046 14.8954 16 16 16C16.5523 16 17 16.4477 17 17V18" stroke="url(#testimonial-gradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="testimonial-gradient" x1="4" y1="12" x2="20" y2="12" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#3a6cf4"/>
+                  <stop offset="1" stop-color="#8a3cf4"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          
+          <blockquote>
+            <p>{{ page.testimonial.quote }}</p>
+            <footer>
+              <cite>{{ page.testimonial.author }}</cite>
+              {% if page.testimonial.position %}
+                <span class="position">{{ page.testimonial.position }}</span>
+              {% endif %}
+              {% if page.testimonial.company %}
+                <span class="company">{{ page.testimonial.company }}</span>
+              {% endif %}
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+  
+  {% if page.gallery %}
+    <section class="case-study-gallery">
+      <div class="container">
+        <h2 class="section-title">Project Gallery</h2>
+        
+        <div class="gallery-grid">
+          {% for image in page.gallery %}
+            <div class="gallery-item floating-element">
+              <div class="gallery-image">
+                <img src="{{ image.url | relative_url }}" alt="{{ image.caption | default: page.title }}">
+              </div>
+              {% if image.caption %}
+                <div class="image-caption">{{ image.caption }}</div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+  
+  <section class="case-study-cta">
+    <div class="container">
+      <div class="cta-container floating-element">
+        <h2>Ready for similar results?</h2>
+        <p>Let's discuss how RotaVision can help your business achieve impressive outcomes with our AI solutions.</p>
+        <div class="cta-buttons">
+          <a href="{{ '/contact' | relative_url }}" class="btn btn-primary">Get in Touch</a>
+          <a href="{{ '/services' | relative_url }}" class="btn btn-secondary">Explore Our Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  {% if site.case_studies %}
+    <section class="related-case-studies">
+      <div class="container">
+        <h2 class="section-title">Explore More Case Studies</h2>
+        
+        <div class="case-studies-grid">
+          {% assign related_case_studies = site.case_studies | where_exp: "case_study", "case_study.url != page.url" | limit: 2 %}
+          
+          {% for case_study in related_case_studies %}
+            {% include case-study.html case_study=case_study %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+</article>

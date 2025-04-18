@@ -1,0 +1,402 @@
+// Form styles for RotaVision theme
+
+// Form elements container
+.form-group {
+    margin-bottom: $spacing-5;
+    position: relative;
+  }
+  
+  // Form label
+  .form-label {
+    display: block;
+    margin-bottom: $spacing-2;
+    font-weight: $font-weight-medium;
+    color: $neutral-800;
+  }
+  
+  // Form inputs
+  .form-input,
+  .form-select,
+  .form-textarea {
+    display: block;
+    width: 100%;
+    padding: $spacing-3 $spacing-4;
+    font-size: $font-size-base;
+    line-height: 1.5;
+    color: $neutral-800;
+    background-color: white;
+    border: 1px solid $neutral-300;
+    border-radius: $border-radius;
+    transition: border-color $transition-normal, box-shadow $transition-normal;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-400;
+      box-shadow: 0 0 0 3px rgba($primary-500, 0.1);
+    }
+    
+    &:disabled,
+    &[readonly] {
+      background-color: $neutral-100;
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+    
+    // Placeholder styles
+    &::placeholder {
+      color: $neutral-400;
+    }
+  }
+  
+  // Input sizes
+  .form-input-sm,
+  .form-select-sm,
+  .form-textarea-sm {
+    padding: $spacing-1-5 $spacing-3;
+    font-size: $font-size-sm;
+  }
+  
+  .form-input-lg,
+  .form-select-lg,
+  .form-textarea-lg {
+    padding: $spacing-4 $spacing-5;
+    font-size: $font-size-lg;
+  }
+  
+  // Textarea
+  .form-textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  // Select
+  .form-select {
+    padding-right: $spacing-8;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-position: right $spacing-3 center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    appearance: none;
+  }
+  
+  // Checkbox and radio
+  .form-checkbox,
+  .form-radio {
+    padding-left: $spacing-6;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: $spacing-3;
+    
+    .form-checkbox-input,
+    .form-radio-input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+    
+    .form-checkbox-label,
+    .form-radio-label {
+      margin-bottom: 0;
+      cursor: pointer;
+    }
+    
+    .checkmark {
+      position: absolute;
+      top: 2px;
+      left: 0;
+      height: 18px;
+      width: 18px;
+      background-color: white;
+      border: 1px solid $neutral-300;
+      transition: all $transition-normal;
+    }
+    
+    .form-checkbox-input:checked ~ .checkmark {
+      background-color: $primary-500;
+      border-color: $primary-500;
+    }
+    
+    .form-radio-input:checked ~ .checkmark {
+      border-color: $primary-500;
+    }
+    
+    // Checkmark styles
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+    
+    .form-checkbox-input:checked ~ .checkmark:after,
+    .form-radio-input:checked ~ .checkmark:after {
+      display: block;
+    }
+    
+    // Checkbox checkmark
+    &.form-checkbox .checkmark {
+      border-radius: $border-radius-sm;
+    }
+    
+    &.form-checkbox .checkmark:after {
+      left: 6px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+    
+    // Radio checkmark
+    &.form-radio .checkmark {
+      border-radius: 50%;
+    }
+    
+    &.form-radio .checkmark:after {
+      top: 4px;
+      left: 4px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $primary-500;
+    }
+    
+    // Focus state
+    .form-checkbox-input:focus ~ .checkmark,
+    .form-radio-input:focus ~ .checkmark {
+      box-shadow: 0 0 0 3px rgba($primary-500, 0.1);
+    }
+    
+    // Disabled state
+    .form-checkbox-input:disabled ~ .checkmark,
+    .form-radio-input:disabled ~ .checkmark {
+      background-color: $neutral-100;
+      border-color: $neutral-300;
+      cursor: not-allowed;
+    }
+    
+    .form-checkbox-input:disabled ~ .form-checkbox-label,
+    .form-radio-input:disabled ~ .form-radio-label {
+      color: $neutral-500;
+      cursor: not-allowed;
+    }
+  }
+  
+  // Switch toggle
+  .form-switch {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: $spacing-3;
+    
+    .form-switch-input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+    
+    .form-switch-label {
+      margin-bottom: 0;
+      cursor: pointer;
+    }
+    
+    .switch {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 40px;
+      height: 22px;
+      background-color: $neutral-300;
+      border-radius: 34px;
+      transition: background-color $transition-normal;
+    }
+    
+    .switch:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      border-radius: 50%;
+      transition: transform $transition-normal;
+    }
+    
+    .form-switch-input:checked ~ .switch {
+      background: $gradient-primary;
+    }
+    
+    .form-switch-input:checked ~ .switch:before {
+      transform: translateX(18px);
+    }
+    
+    .form-switch-input:focus ~ .switch {
+      box-shadow: 0 0 0 3px rgba($primary-500, 0.1);
+    }
+    
+    .form-switch-input:disabled ~ .switch {
+      background-color: $neutral-200;
+      cursor: not-allowed;
+    }
+    
+    .form-switch-input:disabled ~ .form-switch-label {
+      color: $neutral-500;
+      cursor: not-allowed;
+    }
+  }
+  
+  // Form validation
+  .form-group.has-error {
+    .form-input,
+    .form-select,
+    .form-textarea {
+      border-color: $error;
+    }
+    
+    .form-label {
+      color: $error;
+    }
+    
+    .form-error {
+      margin-top: $spacing-1;
+      font-size: $font-size-sm;
+      color: $error;
+    }
+  }
+  
+  .form-group.has-success {
+    .form-input,
+    .form-select,
+    .form-textarea {
+      border-color: $success;
+    }
+  }
+  
+  // Input with icon
+  .input-with-icon {
+    position: relative;
+    
+    .form-input {
+      padding-left: $spacing-10;
+    }
+    
+    .input-icon {
+      position: absolute;
+      top: 50%;
+      left: $spacing-3;
+      transform: translateY(-50%);
+      color: $neutral-500;
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+    }
+    
+    &.icon-right {
+      .form-input {
+        padding-left: $spacing-4;
+        padding-right: $spacing-10;
+      }
+      
+      .input-icon {
+        left: auto;
+        right: $spacing-3;
+      }
+    }
+  }
+  
+  // Form layout
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -$spacing-2;
+    margin-left: -$spacing-2;
+    
+    > .form-group {
+      flex: 1 0 0%;
+      padding-right: $spacing-2;
+      padding-left: $spacing-2;
+    }
+  }
+  
+  // Full width for smaller screens
+  @media (max-width: $breakpoint-sm) {
+    .form-row > .form-group {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+  
+  // Form input with highlight effect
+  .input-highlight {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background: $gradient-primary;
+    transition: width 0.3s ease;
+  }
+  
+  .form-input:focus ~ .input-highlight,
+  .form-textarea:focus ~ .input-highlight,
+  .form-select:focus ~ .input-highlight {
+    width: 100%;
+  }
+  
+  // Floating labels
+  .form-floating {
+    position: relative;
+    
+    .form-input,
+    .form-select {
+      padding-top: $spacing-6;
+      padding-bottom: $spacing-2;
+      height: calc(3.5rem + 2px);
+    }
+    
+    .form-label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      padding: $spacing-6 $spacing-4 $spacing-2;
+      pointer-events: none;
+      transform-origin: 0 0;
+      transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+      color: $neutral-500;
+    }
+    
+    .form-input:focus ~ .form-label,
+    .form-input:not(:placeholder-shown) ~ .form-label,
+    .form-select:focus ~ .form-label,
+    .form-select:not([value=""]):not(:focus) ~ .form-label {
+      opacity: 0.8;
+      transform: scale(0.8) translateY(-0.5rem) translateX(0.15rem);
+    }
+  }
+  
+  // Form success state
+  .form-success {
+    text-align: center;
+    padding: $spacing-8 $spacing-4;
+    
+    svg {
+      color: $success;
+      margin-bottom: $spacing-4;
+    }
+    
+    h3 {
+      margin-bottom: $spacing-2;
+    }
+    
+    p {
+      color: $neutral-600;
+    }
+  }

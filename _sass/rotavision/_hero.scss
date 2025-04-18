@@ -1,0 +1,238 @@
+// Professional hero section styles for RotaVision theme
+
+// Main hero section
+.hero-section {
+  padding: $spacing-16 0;
+  background-color: $neutral-50;
+  position: relative;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-10 0;
+  }
+  
+  // Container layout
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+  
+  // Hero content
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-10;
+    align-items: center;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+      gap: $spacing-8;
+    }
+  }
+  
+  // Hero text container
+  .hero-text-container {
+    @media (max-width: $breakpoint-lg) {
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+  
+  // Hero title
+  .hero-title {
+    font-size: $font-size-4xl;
+    line-height: 1.2;
+    margin-bottom: $spacing-4;
+    color: $neutral-900;
+    font-weight: $font-weight-bold;
+    
+    @media (min-width: $breakpoint-md) {
+      font-size: $font-size-5xl;
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      font-size: $font-size-3xl;
+    }
+  }
+  
+  // Hero subtitle
+  .hero-subtitle {
+    font-size: $font-size-lg;
+    color: $neutral-600;
+    margin-bottom: $spacing-6;
+    max-width: 500px;
+    line-height: 1.6;
+    
+    @media (max-width: $breakpoint-lg) {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 600px;
+    }
+  }
+  
+  // Hero buttons
+  .hero-buttons {
+    display: flex;
+    gap: $spacing-4;
+    
+    @media (max-width: $breakpoint-lg) {
+      justify-content: center;
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      flex-direction: column;
+      gap: $spacing-3;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  
+  // Hero image container
+  .hero-image-container {
+    @media (max-width: $breakpoint-lg) {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+  
+  // Hero image
+  .hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-lg;
+  }
+}
+
+// Alternative hero style (dark background)
+.hero-dark {
+  background-color: $neutral-900;
+  
+  .hero-title {
+    color: white;
+  }
+  
+  .hero-subtitle {
+    color: $neutral-300;
+  }
+}
+
+// Hero with subtle background pattern
+.hero-pattern {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(to right, rgba($primary-100, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba($primary-100, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: 0;
+  }
+}
+
+// Hero with accent color
+.hero-accent {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: $primary-500;
+  }
+}
+
+// Hero with split design (two-tone background)
+.hero-split {
+  position: relative;
+  padding: 0;
+  
+  .hero-split-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .hero-split-content {
+    padding: $spacing-16 $spacing-8;
+    background-color: $primary-50;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    @media (max-width: $breakpoint-md) {
+      padding: $spacing-10 $spacing-6;
+    }
+  }
+  
+  .hero-split-image {
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+    
+    @media (max-width: $breakpoint-lg) {
+      min-height: 300px;
+    }
+  }
+}
+
+// Minimal hero for inner pages
+.hero-minimal {
+  padding: $spacing-10 0 $spacing-6;
+  background-color: white;
+  border-bottom: 1px solid $neutral-200;
+  
+  .hero-title {
+    font-size: $font-size-3xl;
+    margin-bottom: $spacing-3;
+  }
+  
+  .hero-subtitle {
+    font-size: $font-size-base;
+    margin-bottom: $spacing-2;
+  }
+  
+  // Breadcrumbs
+  .breadcrumbs {
+    display: flex;
+    font-size: $font-size-sm;
+    color: $neutral-500;
+    margin-bottom: $spacing-4;
+    
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+      
+      &:not(:last-child)::after {
+        content: '/';
+        margin: 0 $spacing-2;
+        color: $neutral-400;
+      }
+      
+      a {
+        color: $neutral-600;
+        
+        &:hover {
+          color: $primary-600;
+        }
+      }
+      
+      &.active {
+        color: $primary-600;
+      }
+    }
+  }
+}

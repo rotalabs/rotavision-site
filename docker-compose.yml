@@ -1,0 +1,11 @@
+services:
+  jekyll:
+    image: jekyll/jekyll:latest
+    volumes:
+      - .:/srv/jekyll
+    ports:
+      - "4000:4000"
+    command: >
+      bash -c "jekyll new . --force &&
+               bundle add webrick &&
+               bundle exec jekyll serve --host 0.0.0.0 --livereload"
